@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SUMMER PROGRESS BAR</title>
+<link rel="icon" type="image/x-icon" href="clock.ico">
+<style>
+    @font-face {
+        font-family: 'Arial Narrow Bold';
+        src: url('arial_narrow_bold.TTF') format('truetype');
+    }
+
+    body {
+        background-color: black;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column; 
+        height: 100vh;
+        font-family: 'Arial Narrow Bold', sans-serif; 
+    }
+    .progress-bar {
+        display: none; 
+        width: 50%;
+        height: 30px;
+        background: radial-gradient(circle, white 10%, black 10%);
+        background-size: 5px 5px; 
+        background-color: black;
+        border-radius: 15px;
+        overflow: hidden;
+        border: 2px solid white;
+        transition: opacity 0.5s; 
+    }
+    .progress {
+        width: var(--progress);
+        height: 100%;
+        background-color: white;
+        background-size: 5px 5px; 
+    }
+    .comp-text {
+        color: white;
+        font-size: 112px;
+        margin: 20px 0;
+        opacity: 0; 
+    }
+    .remain-text {
+        color: white;
+        font-size: 60px;
+        margin: 20px 0;
+        opacity: 0; 
+        transition: opacity 1s; 
+    }
+</style>
+</head>
+<body>
+<div class="comp-text" id="completion-text"></div> 
+<div class="progress-bar">
+    <div class="progress" style="--progress: calc(100% - (var(--days-left) / var(--total-days) * 100%));"></div>
+</div>
+<div class="remain-text" id="remaining-days-text"></div>
+<script>
+    // clickgin
+    function handleClick() {
+        // Play audio
+        const audio = new Audio('majoras_mask.mp3');
+        audio.play();
+        
+        setTimeout(function() {
+            document.querySelector('.progress-bar').style.display = 'block';
+        }, 0);
+        
+        setTimeout(function() {
+            document.getElementById("completion-text").style.opacity = '1';
+        }, 450);
+        
+        setTimeout(function() {
+            document.getElementById("remaining-days-text").style.opacity = '1';
+        }, 1800);
+        
+        document.removeEventListener('click', handleClick);
+    }
+    
+   //detect click
+    document.addEventListener('click', handleClick);
+    
+    // calculations
+    const now = new Date();
+    const mayFirst = new Date(now.getFullYear(), 4, 1); // May 1st = 04/01
+    const septemberFirst = new Date(now.getFullYear(), 8, 6); // September 6th = 08/06
+    const totalDays = Math.ceil((septemberFirst - mayFirst) / (1000 * 60 * 60 * 24));
+    const daysPassed = Math.ceil((now - mayFirst) / (1000 * 60 * 60 * 24));
+    const daysLeft = totalDays - daysPassed;
+    const completionPercentage = ((daysPassed / totalDays) * 100).toFixed(2); //round 2
+    document.documentElement.style.setProperty('--days-left', daysLeft);
+    document.documentElement.style.setProperty('--total-days', totalDays);
+    
+    // Update text above progress bar
+    document.getElementById("completion-text").innerText = completionPercentage + "% of Summer Completed";
+    // Update text below progress bar
+    document.getElementById("remaining-days-text").innerText = "- " + daysLeft + " Days Remain -";
+</script>
+</body>
+</html>
