@@ -90,6 +90,10 @@
     const now = new Date();
     const mayFirst = new Date(now.getFullYear(), 4, 19); // April 19th = 04/19
     const septemberFirst = new Date(now.getFullYear(), 8, 6); // September 6th = 08/06
+
+    if (septemberFirst < mayFirst) {
+        septemberFirst = new Date(now.getFullYear(), 8, 6);
+    }
     const totalDays = Math.ceil((septemberFirst - mayFirst) / (1000 * 60 * 60 * 24));
     const daysPassed = Math.ceil((now - mayFirst) / (1000 * 60 * 60 * 24));
     const daysLeft = totalDays - daysPassed;
