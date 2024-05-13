@@ -42,13 +42,13 @@
     }
     .comp-text {
         color: white;
-        font-size: 112px;
+        font-size: 6vw;
         margin: 20px 0;
         opacity: 0; 
     }
     .remain-text {
         color: white;
-        font-size: 60px;
+        font-size: 3.5vw;
         margin: 20px 0;
         opacity: 0; 
         transition: opacity 1s; 
@@ -96,6 +96,11 @@
     const completionPercentage = ((daysPassed / totalDays) * 100).toFixed(2); //round 2
     document.documentElement.style.setProperty('--days-left', daysLeft);
     document.documentElement.style.setProperty('--total-days', totalDays);
+    
+    // Update text above progress bar
+    document.getElementById("completion-text").innerText = completionPercentage + "% of Summer Completed";
+    // Update text below progress bar
+    document.getElementById("remaining-days-text").innerText = "- " + daysLeft + " Days Remain -";
 </script>
 </body>
 </html>
