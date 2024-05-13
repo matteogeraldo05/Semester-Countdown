@@ -88,23 +88,14 @@
     
     // calculations
     const now = new Date();
-    const mayFirst = new Date(now.getFullYear(), 4, 19); // April 19th = 04/19
+    const aprilNineteenth = new Date(now.getFullYear(), 3, 19); // May 1st = 04/01
     const septemberFirst = new Date(now.getFullYear(), 8, 6); // September 6th = 08/06
-
-    if (septemberFirst < mayFirst) {
-        septemberFirst = new Date(now.getFullYear(), 8, 6);
-    }
-    const totalDays = Math.ceil((septemberFirst - mayFirst) / (1000 * 60 * 60 * 24));
-    const daysPassed = Math.ceil((now - mayFirst) / (1000 * 60 * 60 * 24));
+    const totalDays = Math.ceil((septemberFirst - aprilNineteenth) / (1000 * 60 * 60 * 24));
+    const daysPassed = Math.ceil((now - aprilNineteenth) / (1000 * 60 * 60 * 24));
     const daysLeft = totalDays - daysPassed;
     const completionPercentage = ((daysPassed / totalDays) * 100).toFixed(2); //round 2
     document.documentElement.style.setProperty('--days-left', daysLeft);
     document.documentElement.style.setProperty('--total-days', totalDays);
-    
-    // Update text above progress bar
-    document.getElementById("completion-text").innerText = completionPercentage + "% of Summer Completed";
-    // Update text below progress bar
-    document.getElementById("remaining-days-text").innerText = "- " + daysLeft + " Days Remain -";
 </script>
 </body>
 </html>
