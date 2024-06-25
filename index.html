@@ -62,10 +62,11 @@
 </div>
 <div class="remain-text" id="remaining-days-text"></div>
 <script>
+    // fix mobile bug by preloadin mp3
+    const audio = new Audio('majoras_mask.mp3');
     // clickgin
     function handleClick() {
         // Play audio
-        const audio = new Audio('majoras_mask.mp3');
         audio.play();
         
         setTimeout(function() {
