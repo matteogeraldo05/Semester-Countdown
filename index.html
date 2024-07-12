@@ -90,7 +90,7 @@
     // calculations
     const now = new Date();
     const aprilNineteenth = new Date(now.getFullYear(), 3, 19); // May 1st = 04/01
-    const septemberFirst = new Date(now.getFullYear(), 8, 6); // September 6th = 08/06
+    const septemberFirst = new Date(now.getFullYear(), 8, 3); // September 6th = 08/06
     const totalDays = Math.ceil((septemberFirst - aprilNineteenth) / (1000 * 60 * 60 * 24));
     const daysPassed = Math.ceil((now - aprilNineteenth) / (1000 * 60 * 60 * 24));
     const daysLeft = totalDays - daysPassed;
