@@ -171,7 +171,8 @@
     document.documentElement.style.setProperty("--total-days", totalDays);
 
     // Update text 
-    document.getElementById("dawn-text").innerText = "Dawn of";
+    document.getElementById("dawn-text").innerText = "Dawn of";//just changing "Dawn of" to "End of" as the semester aproaches its end
+    //TODO: implement method that automatically does this AND one that resets the timer acordint to fall / winter semesters
     document.getElementById("fall-text").innerText = "The Fall Semester";
     document.getElementById("remaining-days-text").innerText = "- " + Math.max(daysLeft, 0) + " Days Remain -";
 </script>
