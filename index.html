@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>UNIVERSITY PROGRESS BAR</title>
-<link rel="icon" type="image/x-icon" href="clock.ico">
+<link rel="icon" type="image/x-icon" href="assets/images/clock.ico">
 <style>
     @font-face {
         font-family: "Arial Narrow Bold";
-        src: url("arial_narrow_bold.TTF") format("truetype");
+        src: url("assets/fonts/arial_narrow_bold.TTF") format("truetype");
     }
 
     body {
@@ -91,8 +91,8 @@
     <div class="remain-text" id="remaining-days-text"></div>
 <script>
     // Fix mobile bug by preloading mp3
-    const majorasMask = new Audio("majoras_mask.mp3");
-    const fnafBells = new Audio("fnaf_bells.mp3");
+    const majorasMask = new Audio("assets/audio/majoras_mask.mp3");
+    const fnafBells = new Audio("assets/audio/fnaf_bells.mp3");
 
     function setOpacityWithDelay(elementId, opacity, delay) {
         setTimeout(() => {
@@ -171,9 +171,9 @@
     document.documentElement.style.setProperty("--total-days", totalDays);
 
     // Update text 
-    document.getElementById("dawn-text").innerText = "End of";//just changing "Dawn of" to "End of" as the semester aproaches its end
+    document.getElementById("dawn-text").innerText = "Dawn of";//just changing "Dawn of" to "End of" as the semester aproaches its end
     //TODO: implement method that automatically does this AND one that resets the timer acordint to fall / winter semesters
-    document.getElementById("fall-text").innerText = "The Fall Semester";
+    document.getElementById("fall-text").innerText = "The Winter Semester";
     document.getElementById("remaining-days-text").innerText = "- " + Math.max(daysLeft, 0) + " Days Remain -";
 </script>
 </body>
