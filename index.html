@@ -126,7 +126,7 @@
         setTimeout(() => {
             document.querySelector(".progress-bar").style.display = "block";
             document.getElementById("dawn-text").innerText = "";
-            document.getElementById("fall-text").innerText = completionPercentage + "% of Winter Completed";
+            document.getElementById("fall-text").innerText = completionPercentage + "% of Fall Completed";
         }, 5000);
 
         // Prevent further clicks
@@ -159,8 +159,8 @@
 
     // Calculations
     const now = new Date();
-    const firstDate = new Date(2025, 8, 2);  // January 7th, 2025
-    const secondDate = new Date(2025, 11, 8); // April 15th, 2025
+    const firstDate = new Date(2025, 8, 2);  // September 2th, 2025
+    const secondDate = new Date(2025, 11, 8); // December 8th, 2025
     const totalDays = Math.ceil((secondDate - firstDate) / (1000 * 60 * 60 * 24));
     const daysPassed = Math.ceil((now - firstDate) / (1000 * 60 * 60 * 24));
     const daysLeft = totalDays - daysPassed;
