@@ -159,8 +159,8 @@
 
     // Calculations
     const now = new Date();
-    const firstDate = new Date(2025, 0, 7);  // January 7th, 2025
-    const secondDate = new Date(2025, 3, 15); // April 15th, 2025
+    const firstDate = new Date(2025, 8, 2);  // January 7th, 2025
+    const secondDate = new Date(2025, 11, 8); // April 15th, 2025
     const totalDays = Math.ceil((secondDate - firstDate) / (1000 * 60 * 60 * 24));
     const daysPassed = Math.ceil((now - firstDate) / (1000 * 60 * 60 * 24));
     const daysLeft = totalDays - daysPassed;
@@ -171,9 +171,9 @@
     document.documentElement.style.setProperty("--total-days", totalDays);
 
     // Update text 
-    document.getElementById("dawn-text").innerText = "End of";//just changing "Dawn of" to "End of" as the semester aproaches its end
+    document.getElementById("dawn-text").innerText = "Dawn of";//just changing "Dawn of" to "End of" as the semester aproaches its end
     //TODO: implement method that automatically does this AND one that resets the timer acordint to fall / winter semesters
-    document.getElementById("fall-text").innerText = "The Winter Semester";
+    document.getElementById("fall-text").innerText = "The Fall Semester";
     document.getElementById("remaining-days-text").innerText = "- " + Math.max(daysLeft, 0) + " Days Remain -";
 </script>
 </body>
